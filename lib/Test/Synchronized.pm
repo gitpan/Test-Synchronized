@@ -3,14 +3,14 @@ use strict;
 use warnings;
 use Test::Synchronized::Lock;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 my $default_instance = Test::Synchronized::Lock->new({
     id => getppid()
 });
 
 END {
-    $default_instance->unlock;
+    undef $default_instance;
 }
 
 sub import {

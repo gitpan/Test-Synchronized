@@ -21,7 +21,8 @@ no_index:
     - t
 requires:
   Class::Accessor::Fast: 0
+  File::Spec: 0
 resources:
   license: http://dev.perl.org/licenses/
   repository: http://bitbucket.org/kzys/test-synchronized
-version: 0.01
+version: 0.02
