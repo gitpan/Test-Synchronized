@@ -1,7 +1,7 @@
 ---
 abstract: ~
 author:
-  - 'KATO Kazuyoshi <kzys@8-p.info>'
+  - 'Kato Kazuyoshi <kato.kazuyoshi@gmail.com>'
 build_requires:
   ExtUtils::MakeMaker: 6.42
   Test::More: 0
@@ -9,7 +9,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.91'
+generated_by: 'Module::Install version 1.00'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -21,8 +21,6 @@ no_index:
     - t
 requires:
   Class::Accessor::Fast: 0
-  File::Spec: 0
 resources:
   license: http://dev.perl.org/licenses/
-  repository: http://bitbucket.org/kzys/test-synchronized
-version: 0.02
+version: 0.04

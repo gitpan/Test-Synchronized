@@ -1,21 +1,11 @@
 package Test::Synchronized;
 use strict;
 use warnings;
-use Test::Synchronized::Lock;
 
-our $VERSION = '0.02';
+use Test::Synchronized::FileLock;
+use Test::Synchronized::Extensible lock_class => 'Test::Synchronized::FileLock';
 
-my $default_instance = Test::Synchronized::Lock->new({
-    id => getppid()
-});
-
-END {
-    undef $default_instance;
-}
-
-sub import {
-    $default_instance->lock;
-}
+our $VERSION = '0.04';
 
 1;
 
@@ -34,13 +24,20 @@ Test::Synchronized
 
 =head1 DESCRIPTION
 
-"prove -j9" is fast. But your tests are parallel-safe?
+Test::Synchronized provides simple (and giant) lock for your tests.
 
-Test::Synchronized provides simple lock system for your tests. If your tests includes some parallel-unsafe tests, You can use "prove -j9" with Test::Synchronized to speed up your development.
+If you have a few test that not works in parallel,
+you should not give up to run whole tests in parallel.
+
+=head1 EXTENSIBILITY
+
+The default lock is based on process ID.
+If you want to use different system,
+Please try Test::Synchronized::Extensible.
 
 =head1 AUTHOR
 
-KATO Kazuyoshi E<lt>kzys@8-p.infoE<gt>
+Kato Kazuyoshi E<lt>kato.kazuyoshi@gmail.comE<gt>
 
 =head1 LICENSE
 
